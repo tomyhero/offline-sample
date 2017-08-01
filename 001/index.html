@@ -1,12 +1,50 @@
-<html lang="en" manifest="offline002.mainfest">
+<html lang="en" manifest="offline001.mainfest">
   <head>
-        <title>Application Cache</title>
-             <link rel="stylesheet" href="style.css">
+    <title>Application Cache</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
 
     <span>Application Cache</span>
     <img src="./icon.png" />
+    <br />
+    <span id="stauts"></span>
+
+    <script>
+
+    document.getElementById('stauts').appendChild( document.createTextNode(stauts()) );
+
+
+
+function stauts(){
+  var appCache = window.applicationCache;
+
+  switch (appCache.status) {
+    case appCache.UNCACHED: // UNCACHED == 0
+      return 'UNCACHED';
+      break;
+    case appCache.IDLE: // IDLE == 1
+      return 'IDLE';
+      break;
+    case appCache.CHECKING: // CHECKING == 2
+      return 'CHECKING';
+      break;
+    case appCache.DOWNLOADING: // DOWNLOADING == 3
+      return 'DOWNLOADING';
+      break;
+    case appCache.UPDATEREADY:  // UPDATEREADY == 4
+      return 'UPDATEREADY';
+      break;
+    case appCache.OBSOLETE: // OBSOLETE == 5
+      return 'OBSOLETE';
+      break;
+    default:
+      return 'UKNOWN CACHE STATUS';
+      break;
+  };
+}
+
+    </script>
 
   </body>
 </html>

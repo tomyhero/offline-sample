@@ -1,0 +1,9 @@
+CACHE MANIFEST
+# COMMENT
+
+CACHE:
+style.css
+icon.png
+
+NETWORK:
+*
