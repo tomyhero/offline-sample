@@ -1,0 +1,37 @@
+<html lang="en" manifest="offline01.mainfest">
+  <head>
+    <title>Application Cache</title>
+    <link rel="stylesheet" href="style01.css">
+  </head>
+  <body>
+
+  <span>01</span>
+  <script>
+
+var AC = window.AC = {};
+AC = {
+  setup: function() {
+    window.addEventListener('load', function(e) {
+      window.applicationCache.addEventListener('updateready', function(e) {
+        if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+          window.applicationCache.swapCache();
+          if (confirm('データの更新がありました。再読み込みしますか？')) {
+            window.location.reload();
+          }
+        } else {
+          // Manifest didn't changed. Nothing new to server.
+        }
+      }, false);
+
+    }, false);
+
+  }
+};
+
+AC.setup();
+
+</script>
+
+
+  </body>
+</html>
