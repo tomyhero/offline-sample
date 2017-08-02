@@ -1,8 +1,8 @@
-CACHE MANIFEST:
+CACHE MANIFEST
 # ver 4
 
 CACHE:
-style02.css
+./style02.css
 
 NETWORK:
 *
